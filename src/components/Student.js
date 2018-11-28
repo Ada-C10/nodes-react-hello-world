@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import NameDisplay from './NameDisplay';
 import './Student.css'
 
 
@@ -14,8 +15,7 @@ class Student extends Component {
     // props.name='Jonnie 5'; not allowed
     return (
       <section className={ this.props.present? "present": "absent"}>
-        <h2>{this.props.name}  {this.props.lastName} </h2>
-        <p>{this.props.email}</p>
+        <NameDisplay name={this.props.name} />
         <p>{this.props.present.toString()}</p>
         <p> {this.props.present ? "Here today!": "Absent!" }</p>
       </section>
