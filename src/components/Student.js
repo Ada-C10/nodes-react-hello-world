@@ -1,19 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Student.css'
 
 
-const Student = (props) => {
+class Student extends Component {
 
-    console.log(props);
+  constructor(props) {
+    super(props);
+    this.name = props.name;
+  }
+
+  render() {
     // props.name='Jonnie 5'; not allowed
     return (
-        <section className={ props.present? "present": "absent"}>
-            <h2>{props.name}  {props.lastName} </h2>
-            <p>{props.email}</p>
-            <p>{props.present.toString()}</p>
-            <p> {props.present ? "Here today!": "Absent!" }</p>
-        </section>
+      <section className={ this.props.present? "present": "absent"}>
+        <h2>{this.props.name}  {this.props.lastName} </h2>
+        <p>{this.props.email}</p>
+        <p>{this.props.present.toString()}</p>
+        <p> {this.props.present ? "Here today!": "Absent!" }</p>
+      </section>
     )
+  }
+}
+
+Student.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 export default Student;

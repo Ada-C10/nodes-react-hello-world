@@ -39,14 +39,7 @@ class App extends Component {
         key={index}
         />
     });
-
-    const myJSX = [
-      <p key="cheez">I love Cheez</p>,
-      <p key="turkey">I ate too much turkey</p>
-    ];
     
-
-
     return (
       <main className="app">
         <h1>My Great React App</h1>
