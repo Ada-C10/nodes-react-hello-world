@@ -13,24 +13,55 @@ class NameDisplay extends Component {
       this.setState({
         displayName: !this.state.displayName,
       });
-    }, 
+    },
     1000);
     */
   }
 
-  render() {
-    if (this.state.name) {
+  onButtonClick = () => {
+    this.setState({displayName: !this.state.displayName});
+  }
+
+  onNameInputChange = (event) => {
+    this.setState({tempName: event.target.value});
+  }
+
+  onNameSubmit = (event) => {
+    event.preventDefault();
+    this.setState({name: this.state.tempName, tempName: ''})
+  }
+
+  renderDisplayName = () =>{
+    if(this.state.displayName){
       return (
         <div>
           <h3>Hello, {this.state.name}</h3>
+          <form onSubmit={this.onNameSubmit}>
+             <label>
+               Name:
+               <input type="text" value={this.state.value} onChange={this.onNameInputChange} />
+             </label>
+             <input type="submit" value="Submit" />
+           </form>
         </div>
-      );
-    } else {
-      return <div>
-        <h3>I don't know how to display your name</h3>
-      </div>;
+      )
     }
-  } 
+    else{
+      return <h3>I don't know how to display your name</h3>
+    }
+  }
+
+  render() {
+    console.log(this);
+
+    return (
+      <div>
+        {this.renderDisplayName()}
+        <button onClick={this.onButtonClick}>Toggle Name</button>
+      </div>
+    );
+  }
+
 }
 
 export default NameDisplay;
