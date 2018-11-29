@@ -12,37 +12,34 @@ import Student from './Student';
 
 class StudentCollection extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  // }
-
-  setupRendering() {
-    return [
-      {
-        name: 'Amanda',
-        lastName: 'Ada Student',
-        email: 'amanda@google.com',
-        present: true,
-      },
-      {
-        name: 'Cassie',
-        lastName: 'Ada Student',
-        email: 'Casse@yahoo.com',
-        present: true,
-      },
-      {
-        name: 'Kylo',
-        lastName: 'Ren',
-        email: 'kylo@theEmpire.gov',
-        present: false,
-      }
-    ];
+  constructor(props) {
+    super(props);
+    this.state = {
+      students: [
+        {
+          name: 'Amanda',
+          lastName: 'Ada Student',
+          email: 'amanda@google.com',
+          present: true,
+        },
+        {
+          name: 'Cassie',
+          lastName: 'Ada Student',
+          email: 'Casse@yahoo.com',
+          present: true,
+        },
+        {
+          name: 'Kylo',
+          lastName: 'Ren',
+          email: 'kylo@theEmpire.gov',
+          present: false,
+        }
+      ]
+    }
   }
 
   render() {
-    const students = this.setupRendering();
-
-    const studentCollection = students.map((student, i) => {
+    const studentCollection = this.state.students.map((student, i) => {
       return <Student
               key={i}
               name={student.name}
@@ -54,7 +51,7 @@ class StudentCollection extends React.Component {
 
     const header = "header";
 
-    const headerColor = students.length > 1 ? "red-header" : "blue-header";
+    const headerColor = this.state.students.length > 1 ? "red-header" : "blue-header";
 
     return (
       <section>
