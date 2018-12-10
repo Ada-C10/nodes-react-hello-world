@@ -35,7 +35,11 @@ class NewStudentForm extends Component {
   onSubmitHandler = (event)=> {
     event.preventDefault();
     this.props.addNewStudentCallback(this.state);
-    
+    this.setState({
+      name: '',
+      email: '',
+      present: false,
+    });
   }
 
   render() {
