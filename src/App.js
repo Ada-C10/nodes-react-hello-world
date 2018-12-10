@@ -2,10 +2,13 @@
 import React, { Component } from 'react';
 // My Components
 import StudentCollection from './components/StudentCollection';
+import NewStudentForm from './components/NewStudentForm';
 // Non Component Stuff
 import './App.css';
 
 class App extends Component {
+
+
 
   render() {
 

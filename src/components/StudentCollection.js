@@ -1,6 +1,7 @@
 import React from 'react';
 import './StudentCollection.css';
 import Student from './Student';
+import NewStudentForm from './NewStudentForm';
 
 // Check the syntax! It's a class, and it inherits from Component (make sure I'm importing the right things so that Component is being accessed correctly)
 
@@ -38,6 +39,15 @@ class StudentCollection extends React.Component {
     }
   }
 
+  onAddStudent = (newStudent) => {
+    const { students } = this.state;
+    students.push(newStudent);
+    this.setState({
+      students,
+    });
+
+  }
+
   render() {
     const studentCollection = this.state.students.map((student, i) => {
       return <Student
@@ -59,6 +69,11 @@ class StudentCollection extends React.Component {
         <ul>
           {studentCollection}
         </ul>
+        <section>
+          <NewStudentForm 
+            addNewStudentCallback={this.onAddStudent}
+          />
+        </section>
       </section>
     );
   }
