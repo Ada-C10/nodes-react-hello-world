@@ -1,0 +1,7 @@
+.valid {
+  background-color: lightgreen;
+}
+
+.invalid {
+  background-color: pink;
+}
